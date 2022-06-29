@@ -1,0 +1,27 @@
+[user]
+    signingkey = 43443D39B4C55EB05EC984A3748253AD7316F53E
+    name = w0zro
+    email = w0zro@proton.me
+[core]
+    excludesfile = ~/.gitignore
+[commit]
+    gpgsign = true
+[alias]
+    aliases      = ! git config --list | grep alias
+    amend        = commit --amend
+    commits      = log --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    graph        = log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    join         = merge --no-ff
+    recall       = stash show -p
+    recent       = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+    rollback     = reset HEAD^
+    search       = "!f1() { git log --all --grep=$1; }; f1"
+    track        = update-index --no-assume-unchanged
+    unstage      = reset HEAD --
+    untrack      = update-index --assume-unchanged
+    whoami       = config user.name
+    wip          = commit -am wip
+[pull]
+    ff           = only
+[init]
+    defaultBranch = main
