@@ -15,6 +15,7 @@ endif
 
 call plug#begin()
 Plug 'tpope/vim-sensible'                        " common defaults
+Plug 'tpope/vim-vinegar'                         " file navigation
 Plug 'junegunn/fzf',                             " fuzzy finding
             \ { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
