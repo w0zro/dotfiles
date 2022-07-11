@@ -75,9 +75,12 @@ nmap <silent> <leader>tv :TestVisit<CR>
 "
 " Prompt
 "
-nmap <leader>p :VimuxPromptCommand<cr>
-nmap <leader>pp :VimuxRunLastCommand<cr>
-nmap <leader>pq :VimuxCloseRunner<cr>
+" <leader>1 is chosen here to mimic my use of 1 as the
+" normal mode method of running a shell command
+nmap <leader>1 :VimuxPromptCommand<cr>
+nmap <leader>11 :VimuxRunLastCommand<cr>
+nmap <leader>1q :VimuxCloseRunner<cr>
+nmap <leader>1d :VimuxInterruptRunner<cr>
 
 "
 " Language Server
