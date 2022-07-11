@@ -14,6 +14,7 @@ endif
 "
 
 call plug#begin()
+Plug 'preservim/vimux'                           " prompt in vim
 Plug 'tpope/vim-sensible'                        " common defaults
 Plug 'tpope/vim-vinegar'                         " file navigation
 Plug 'junegunn/fzf',                             " fuzzy finding
@@ -23,6 +24,7 @@ Plug 'reedes/vim-wheel'                          " in-place cursor scroll
 Plug 'tpope/vim-commentary'                      " code comments
 Plug 'chriskempson/base16-vim'                   " themes
 Plug 'sheerun/vim-polyglot'                      " variety language pack
+Plug 'vim-test/vim-test'                         " running tests
 "
 " additional filetype support
 "
@@ -54,3 +56,8 @@ let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
             \ 'ctrl-s': 'split',
             \ 'ctrl-v': 'vsplit' }
+
+"
+" vim-test
+"
+let test#strategy = 'vimux'

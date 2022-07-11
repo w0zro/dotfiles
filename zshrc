@@ -17,6 +17,7 @@ export "GPG_TTY=$(tty)"
 #
 
 alias ll="ls -lah"
+alias cloc="cloc --exclude-dir=\$(tr '\n' ',' < ~/.clocignore)"
 
 #
 # Colors
@@ -59,9 +60,13 @@ autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 
 #
-# ASDF
+# SSH
 #
-. $(brew --prefix asdf)/asdf.sh
+
+# ssh-agent
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+  eval `ssh-agent`
+fi
 
 #
 # GRC
@@ -73,3 +78,11 @@ autoload -U bashcompinit && bashcompinit
 # FZF
 #
 [ -f "$HOME/.fzf.zsh" ] && source $HOME/.fzf.zsh
+
+# cloc
+touch ~/.clocignore
+
+#
+# KEEP AS LAST LINE
+#
+source $HOME/.zshrc_local

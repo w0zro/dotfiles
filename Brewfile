@@ -1,3 +1,4 @@
+brew "cloc"
 brew "coreutils"
 brew "curl"
 brew "fzf"
@@ -5,6 +6,7 @@ brew "git"
 brew "gpg2"
 brew "grc"
 brew "the_silver_searcher"
+brew "tmux"
 brew "vim"
 brew "zsh"
 

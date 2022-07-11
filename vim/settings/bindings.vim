@@ -64,6 +64,22 @@ nmap <leader>c :Commentary<cr>
 vmap <leader>c :Commentary<cr>
 
 "
+" Running Tests
+"
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tt :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+"
+" Prompt
+"
+nmap <leader>p :VimuxPromptCommand<cr>
+nmap <leader>pp :VimuxRunLastCommand<cr>
+nmap <leader>pq :VimuxCloseRunner<cr>
+
+"
 " Language Server
 "
 nmap <leader>ld :LspDefinition<cr>
@@ -72,6 +88,8 @@ nmap <leader>lh :LspHover<cr>
 nmap <leader>lp :LspPeekDefinition<cr>
 nmap <leader>lr :LspRename<cr>
 nmap <leader>ls :LspDocumentSymbol<cr>
+nmap <leader>lw :LspDocumentDiagnostics<cr>
+nmap <leader>li :LspInstallServer<cr>
 
 "
 " Advanced
