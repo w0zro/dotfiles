@@ -25,6 +25,8 @@ Plug 'tpope/vim-commentary'                      " code comments
 Plug 'chriskempson/base16-vim'                   " themes
 Plug 'sheerun/vim-polyglot'                      " variety language pack
 Plug 'vim-test/vim-test'                         " running tests
+Plug 'tpope/vim-surround'                        " change surroundings
+Plug 'tpope/vim-fugitive'                        " source code management
 "
 " additional filetype support
 "

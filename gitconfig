@@ -26,3 +26,7 @@
     ff           = only
 [init]
     defaultBranch = main
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
