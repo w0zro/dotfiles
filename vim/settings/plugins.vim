@@ -42,7 +42,6 @@ Plug 'mattn/vim-lsp-settings'
 "
 " non-permanent plugins
 "
-Plug 'w0zro/vim-dotchangelog'
 so $HOME/.vim/settings/plugins_local.vim       " plugins and their configurations
 call plug#end()
 
@@ -68,10 +67,5 @@ let g:fzf_action = {
 " vim-test
 "
 let test#strategy = 'vimux'
-
-"
-" vim-changelog
-"
-let g:dotchangelog_name = 'MICHAEL_AVILA'
 
 so $HOME/.vim/settings/plugins_local_conf.vim       " non permanent plugin config
