@@ -105,3 +105,6 @@ nmap ; :
 
 " start typing a shell command by pressing 1 instead of press ⇧;1
 nmap 1 :!
+
+" move away
+nmap <leader>le :call g:DotChangelogEdit()<cr>
