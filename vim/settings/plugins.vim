@@ -73,3 +73,5 @@ let test#strategy = 'vimux'
 " vim-changelog
 "
 let g:dotchangelog_name = 'MICHAEL_AVILA'
+
+so $HOME/.vim/settings/plugins_local_conf.vim       " non permanent plugin config
