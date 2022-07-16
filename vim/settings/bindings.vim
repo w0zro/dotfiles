@@ -108,3 +108,6 @@ nmap 1 :!
 
 " move away
 nmap <leader>le :call g:DotChangelogEdit()<cr>
+
+" non permanent bindings
+so $HOME/.vim/settings/bindings_local.vim
