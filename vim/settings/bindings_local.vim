@@ -14,3 +14,5 @@
 "
 "   git update-index --no-assume-unchanged zshrc_local
 "
+
+nmap <leader>le :call g:DotChangelogEdit()<cr>
