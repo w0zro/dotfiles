@@ -12,6 +12,7 @@
     commits      = log --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     graph        = log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     join         = merge --no-ff
+    logstat      = log --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat
     recall       = stash show -p
     recent       = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
     rollback     = reset HEAD^
