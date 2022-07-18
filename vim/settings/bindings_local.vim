@@ -7,12 +7,10 @@
 " Changes to this file are untracked by git due to me issuing
 " the following command:
 "
-"   git update-index --assume-unchanged zshrc_local
+"   git update-index --assume-unchanged vim/settings/bindings_local.vim
 "
 " If I need to commit changes to this file, most likely to this
 " comment, then I need to issue the following command:
 "
-"   git update-index --no-assume-unchanged zshrc_local
+"   git update-index --no-assume-unchanged vim/settings/bindings_local.vim
 "
-
-nmap <leader>le :call g:DotChangelogEdit()<cr>
