@@ -17,3 +17,6 @@ cask "phoenix"
 
 # version control
 brew "git"
+
+# editor
+brew "nvim"
