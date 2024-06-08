@@ -18,6 +18,12 @@
         "options": {
           "full_name": "alacritty"
         }
+      },
+      "phoenix": {
+        "version": "4.0.0",
+        "options": {
+          "full_name": "phoenix"
+        }
       }
     },
     "tap": {
