@@ -9,6 +9,8 @@ brew "zsh"
 
 # terminal
 cask "alacritty"
+brew "tmux"
+brew "tmuxinator"
 
 # window management
 cask "phoenix"
