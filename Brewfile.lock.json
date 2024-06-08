@@ -12,6 +12,12 @@
         "options": {
           "full_name": "font-fira-code"
         }
+      },
+      "alacritty": {
+        "version": "0.13.2",
+        "options": {
+          "full_name": "alacritty"
+        }
       }
     },
     "tap": {
