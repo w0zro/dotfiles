@@ -12,3 +12,6 @@ cask "alacritty"
 
 # window management
 cask "phoenix"
+
+# version control
+brew "git"
