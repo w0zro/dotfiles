@@ -26,3 +26,8 @@ zstyle ':vcs_info:git*' formats '%F{green}%c%u%b %f'
 
 PROMPT=$'%F{8}%~%f ${vcs_info_msg_0_}\n$%f '
 
+#
+# Aliases
+#
+
+alias vim=nvim
