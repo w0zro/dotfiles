@@ -38,3 +38,9 @@ alias mux=tmuxinator
 #
 
 export EDITOR='nvim'
+
+#
+# Configuration
+#
+
+bindkey -e # always use emacs keybindings
