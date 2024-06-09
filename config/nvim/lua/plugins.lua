@@ -1,4 +1,3 @@
-
 return {
 	{ 'catppuccin/nvim', name = 'catppuccin', lazy = false },
 	{ 'nvim-lualine/lualine.nvim', opts = {}, },
@@ -8,4 +7,13 @@ return {
 	{ 'preservim/vimux' },
 	{ 'preservim/vim-wheel' },
 	{ 'bfontaine/Brewfile.vim' },
+	{ 'goolord/alpha-nvim',
+		dependencies = { { 'nvim-tree/nvim-web-devicons', } },
+		config = function(_,_)
+			local alpha = require('alpha')
+			local startify = require('alpha.themes.startify')
+			startify.section.header.val = {}
+			alpha.setup(startify.config)
+		end,
+	},
 }
