@@ -17,8 +17,9 @@ cask "phoenix"
 # version control
 brew "git"
 
-# editor
+# editing
 brew "nvim"
+brew "ripgrep"
 
 # fonts
 cask "font-hack-nerd-font"
