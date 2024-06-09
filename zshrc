@@ -31,6 +31,7 @@ PROMPT=$'%F{8}%~%f ${vcs_info_msg_0_}\n$%f '
 #
 
 alias vim=nvim
+alias mux=tmuxinator
 
 #
 # Env
