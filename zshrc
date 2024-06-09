@@ -3,7 +3,7 @@
 #
 
 autoload -U colors && colors
-[[ -s "/opt/homebrew/etc/grc.zsh" ]] && source /opt/homebrew/etc/grc.zsh
+[[ -s '/opt/homebrew/etc/grc.zsh' ]] && source /opt/homebrew/etc/grc.zsh
 
 #
 # Prompt
@@ -32,6 +32,7 @@ PROMPT=$'%F{8}%~%f ${vcs_info_msg_0_}\n$%f '
 
 alias vim=nvim
 alias mux=tmuxinator
+alias ll='ls -lah'
 
 #
 # Env
