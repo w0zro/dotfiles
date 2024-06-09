@@ -33,6 +33,13 @@ end
 -- keybindings
 local builtin = require('telescope.builtin')
 
+nmap(';;', ';')
+nmap(';', ':')
+nmap('<leader>1', ':VimuxPromptCommand<cr>')
+nmap('<leader>11', ':VimuxRunLastCommand<cr>')
+nmap('<leader>1q', ':VimuxCloseRunner<cr>')
+nmap('<leader>1d', ':VimuxInterruptRunner<cr>')
+
 nmap('<cr><cr>', ':noh<cr>', { silent = true })
 
 nmap('<leader>/', builtin.live_grep)
