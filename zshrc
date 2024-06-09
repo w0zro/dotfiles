@@ -3,6 +3,7 @@
 #
 
 autoload -U colors && colors
+[[ -s "/opt/homebrew/etc/grc.zsh" ]] && source /opt/homebrew/etc/grc.zsh
 
 #
 # Prompt
