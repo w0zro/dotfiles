@@ -21,4 +21,4 @@ brew "git"
 brew "nvim"
 
 # fonts
-cask "font-fira-code"
+cask "font-hack-nerd-font"

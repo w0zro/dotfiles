@@ -24,6 +24,12 @@
         "options": {
           "full_name": "phoenix"
         }
+      },
+      "font-hack-nerd-font": {
+        "version": "3.2.1",
+        "options": {
+          "full_name": "font-hack-nerd-font"
+        }
       }
     },
     "tap": {
