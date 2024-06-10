@@ -4,6 +4,8 @@ return {
 	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' } },
 	{ 'tpope/vim-vinegar' },
+	{ 'tpope/vim-sensible' },
+	{ 'tpope/vim-surround' },
 	{ 'preservim/vimux' },
 	{ 'preservim/vim-wheel' },
 	{ 'bfontaine/Brewfile.vim' },
