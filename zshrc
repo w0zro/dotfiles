@@ -39,6 +39,7 @@ alias ll='ls -lah'
 #
 
 export EDITOR='nvim'
+export GPG_TTY=$(tty)
 
 #
 # Configuration

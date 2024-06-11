@@ -1,6 +1,7 @@
 [user]
     name = w0zro
     email = w0zro@proton.me
+	signingkey = 1834E699E49B0036
 [core]
     excludesfile = ~/.gitignore
 [alias]
@@ -28,3 +29,5 @@
     defaultBranch = main
 [push]
     autoSetupRemote = true
+[commit]
+	gpgsign = true

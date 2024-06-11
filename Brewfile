@@ -21,5 +21,8 @@ brew "git"
 brew "nvim"
 brew "ripgrep"
 
+# cryptography
+brew "gpg2"
+
 # fonts
 cask "font-hack-nerd-font"
