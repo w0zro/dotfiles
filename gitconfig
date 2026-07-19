@@ -1,0 +1,33 @@
+[user]
+    name = w0zro
+    email = w0zro@proton.me
+	signingkey = 1834E699E49B0036
+[core]
+    excludesfile = ~/.gitignore
+[alias]
+    aliases      = ! git config --list | grep alias | cut -c 7-
+    amend        = commit --amend
+    commits      = log --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    graph        = log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    join         = merge --no-ff
+    logstat      = log --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat
+    recall       = stash show -p
+    recent       = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+    rollback     = reset HEAD^
+    search       = "!f1() { git log --all --grep=$1; }; f1"
+    stat         = show --stat
+    track        = update-index --no-assume-unchanged
+    unstage      = reset HEAD --
+    untrack      = update-index --assume-unchanged
+    vim          = "!f1() { vim $(git ls-files -o -m --exclude-standard); }; f1"
+    nvim          = "!f1() { nvim $(git ls-files -o -m --exclude-standard); }; f1"
+    whoami       = config user.name
+    wip          = commit -am wip
+[pull]
+    ff           = only
+[init]
+    defaultBranch = main
+[push]
+    autoSetupRemote = true
+[commit]
+	gpgsign = true

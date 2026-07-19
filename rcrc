@@ -1,0 +1,3 @@
+DOTFILES_DIRS="/Users/w0zro/projects/w0zro/dotfiles"
+EXCLUDES="Brewfile.lock.json"
+UNDOTTED="Brewfile"
