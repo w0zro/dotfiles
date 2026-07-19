@@ -4,8 +4,7 @@ brew "tmux"
 brew "tmuxinator"
 
 # dotfile management
-tap "thoughtbot/formulae"
-brew "rcm"
+brew "chezmoi"
 
 # shell
 brew "zsh"
