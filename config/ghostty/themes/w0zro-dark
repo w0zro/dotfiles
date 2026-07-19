@@ -1,0 +1,24 @@
+# w0zro dark -- soft near-black ground, tier-1 saturated accents
+background = #0f1318
+foreground = #dbe0e8
+cursor-color = #e080b6
+cursor-text = #0f1318
+selection-background = #2b2f35
+selection-foreground = #dbe0e8
+
+palette = 0=#2b2f35
+palette = 8=#8f98a3
+palette = 1=#ef844a
+palette = 9=#ef844a
+palette = 2=#51daa7
+palette = 10=#51daa7
+palette = 3=#d8cf58
+palette = 11=#d8cf58
+palette = 4=#66b6f4
+palette = 12=#66b6f4
+palette = 5=#e080b6
+palette = 13=#e080b6
+palette = 6=#5ddae0
+palette = 14=#5ddae0
+palette = 7=#dbe0e8
+palette = 15=#eef2f7
