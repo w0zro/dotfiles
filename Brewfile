@@ -1,5 +1,5 @@
 # terminal
-cask "alacritty"
+cask "ghostty"
 brew "tmux"
 brew "tmuxinator"
 
@@ -11,6 +11,9 @@ brew "rcm"
 brew "zsh"
 brew "grc"
 
+# runtimes (node, python, ruby)
+brew "mise"
+
 # window management
 cask "phoenix"
 
@@ -18,11 +21,11 @@ cask "phoenix"
 brew "git"
 
 # editing
-brew "nvim"
+brew "neovim"
 brew "ripgrep"
 
 # cryptography
-brew "gpg2"
+brew "gnupg"
 
 # fonts
-cask "font-hack-nerd-font"
+cask "font-monaspace"
