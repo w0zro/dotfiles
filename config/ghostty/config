@@ -1,0 +1,48 @@
+# ghostty config -- w0zro
+# Font: Monaspace Neon for code, Radon (handwriting) for italics/comments.
+# Monaspace styles are metric-compatible, so mixing them keeps columns aligned.
+
+font-family = "Monaspace Neon"
+font-family-bold = "Monaspace Neon"
+font-family-italic = "Monaspace Radon"
+font-family-bold-italic = "Monaspace Radon"
+font-size = 14
+
+# Ligatures + texture healing + slashed zero.
+#   calt = texture healing (even monospace rhythm), on by default -- explicit here
+#   liga = spacing of repeats (///, ||)
+#   ss01..ss09 = the coding ligatures (arrows, != , => , <= , etc.), by language group
+#   cv01=2 = slashed zero  (cv31=1 would give six-pointed asterisks -- left off)
+font-feature = calt
+font-feature = liga
+font-feature = ss01
+font-feature = ss02
+font-feature = ss03
+font-feature = ss04
+font-feature = ss05
+font-feature = ss06
+font-feature = ss07
+font-feature = ss08
+font-feature = ss09
+font-feature = cv01=2
+
+# Generous leading -- code is scanned vertically. (In a terminal this is the
+# real line-spacing lever; nvim's `linespace` is GUI-only and does nothing.)
+adjust-cell-height = 15%
+
+# No animation.
+cursor-style = block
+cursor-style-blink = false
+resize-overlay = never
+mouse-hide-while-typing = true
+
+# --- w0zro colours, following macOS appearance ----------------------------
+# nvim overrides its own window via truecolor; these drive the shell and any
+# 16-colour CLI output (git, ls, grep). Terminal chrome follows the system
+# light/dark setting; nvim keeps its own default (and <space>bg) independently.
+theme = light:w0zro-light,dark:w0zro-dark
+
+# --- window chrome --------------------------------------------------------
+window-padding-x = 8
+window-padding-y = 6
+macos-option-as-alt = true
