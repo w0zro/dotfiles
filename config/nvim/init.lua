@@ -1,54 +1,36 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- vanilla nvim + vim.pro, nothing else.
+--
+-- The full config is preserved next door in init.full.lua (including
+-- the uncommitted vim-test additions). To go back:
+--   cd ~/projects/w0zro/dotfiles/config/nvim
+--   mv init.lua init.vimpro.lua && mv init.full.lua init.lua
 
+-- must precede any <leader> mappings (incl. plugins) -- leader is resolved
+-- at mapping-definition time, not at use time.
 vim.g.mapleader = ' '
 
-require("lazy").setup('plugins')
+vim.opt.rtp:append(vim.fn.expand('~/projects/w0zro/vim-pro/vim-pro'))
+require('vim-pro').setup()
 
-vim.cmd.colorscheme 'catppuccin'
-vim.o.number = true
-vim.o.cursorline = true
-vim.o.clipboard = 'unnamedplus'
+-- conjure: ~{motion} prompts for an intent and rewrites the target via LLM.
+-- ~~ for the line, ~ in visual, . repeats the intent. Needs $ANTHROPIC_API_KEY.
+vim.opt.rtp:append(vim.fn.expand('~/projects/vim-pro/conjure'))
+require('conjure').setup()
 
-function nmap(keys, command, opts)
-	opts = opts or {}
-	vim.keymap.set('n', keys, command, opts)
-end
+vim.opt.rtp:append(vim.fn.expand('~/projects/w0zro/w0zro.nvim'))
+vim.opt.termguicolors = true  -- w0zro is truecolor-first; renders exact hexes
+vim.opt.background = 'light'   -- set before colorscheme so it picks the light branch
+vim.cmd.colorscheme('w0zro')
 
-function vmap(keys, command, opts)
-	opts = opts or {}
-	vim.keymap.set('v', keys, command, opts)
-end
+-- w0zro's chroma tiers need real tokens: base regex syntax never populates
+-- Identifier/Delimiter and can't tell a function call from a definition.
+-- Start treesitter where a parser exists; fall back silently where it doesn't.
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function() pcall(vim.treesitter.start) end,
+})
 
--- keybindings
-local builtin = require('telescope.builtin')
-
-nmap(';;', ';')
-nmap(';', ':')
-nmap('<leader>1', ':VimuxPromptCommand<cr>')
-nmap('<leader>11', ':VimuxRunLastCommand<cr>')
-nmap('<leader>1q', ':VimuxCloseRunner<cr>')
-nmap('<leader>1d', ':VimuxInterruptRunner<cr>')
-
-nmap('<cr><cr>', ':noh<cr>', { silent = true })
-
-nmap('<leader>/', builtin.live_grep)
-nmap('<leader>*', builtin.grep_string)
-nmap('<leader>e', builtin.find_files)
-nmap('<leader>E', builtin.git_files)
-nmap('<leader>b', builtin.buffers)
-
-nmap('<leader><leader>', ':b#<cr>')
-nmap('<leader>w', ':w<cr>')
-nmap('<leader>q', ':q<cr>')
-nmap('<leader>x', ':x<cr>')
+-- <leader>bg flips light/dark. Changing 'background' reloads the colorscheme
+-- on its own, so nothing else is needed here.
+vim.keymap.set('n', '<leader>bg', function()
+  vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
+end, { desc = 'Toggle w0zro light/dark' })

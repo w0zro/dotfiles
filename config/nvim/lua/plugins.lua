@@ -9,6 +9,13 @@ return {
 	{ 'preservim/vimux' },
 	{ 'preservim/vim-wheel' },
 	{ 'bfontaine/Brewfile.vim' },
+	{ 'vim-test/vim-test' },
+	{ dir = '~/projects/w0zro/vim-pro/vim-pro',
+		name = 'vim-pro',
+		config = function()
+			require('vim-pro').setup()
+		end,
+	},
 	{ 'goolord/alpha-nvim',
 		dependencies = { { 'nvim-tree/nvim-web-devicons', } },
 		config = function(_,_)
