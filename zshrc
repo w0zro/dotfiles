@@ -10,13 +10,10 @@ autoload -U colors && colors
 #
 
 setopt prompt_subst
-autoload -U promptinit && promptinit
 
 # Version control information in prompt
-autoload -Uz vcs_info
-precmd() {
-  vcs_info
-}
+autoload -Uz vcs_info add-zsh-hook
+add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}'
@@ -39,10 +36,40 @@ alias ll='ls -lah'
 #
 
 export EDITOR='nvim'
+export GOPATH="$HOME/go"
 export GPG_TTY=$(tty)
 
 #
-# Configuration
+# Keybindings
 #
 
 bindkey -e # always use emacs keybindings
+
+#
+# Runtimes (node, python, ruby via mise)
+#
+
+eval "$(mise activate zsh)"
+
+#
+# Tools
+#
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
+# flyctl
+export FLYCTL_INSTALL="$HOME/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
+
+#
+# Local overrides & secrets (machine-specific, never tracked)
+#
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
