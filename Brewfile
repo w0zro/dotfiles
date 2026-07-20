@@ -13,9 +13,6 @@ brew "grc"
 # runtimes (node, python, ruby)
 brew "mise"
 
-# window management
-cask "phoenix"
-
 # version control
 brew "git"
 
