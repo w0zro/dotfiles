@@ -1,40 +1,56 @@
 # dotfiles
 
-macOS setup managed with [rcm](https://github.com/thoughtbot/rcm): files in this
-repo are symlinked into `$HOME` (dotted, so `zshrc` → `~/.zshrc`), with
-`config/` mapping into `~/.config/`.
+macOS setup managed with [chezmoi](https://chezmoi.io): this repo is the
+chezmoi source directory (`sourceDir` is pinned in
+`dot_config/chezmoi/chezmoi.toml`, so chezmoi manages its own config).
+Source names map to targets: `dot_zshrc` → `~/.zshrc`,
+`dot_config/ghostty/` → `~/.config/ghostty/`, `private_dot_ssh/` → `~/.ssh/`.
+`Brewfile` is deliberately undotted (`~/Brewfile`).
 
 ## What's here
 
-| File / dir            | Purpose                                            |
-| --------------------- | -------------------------------------------------- |
-| `zshrc` / `zprofile`  | zsh: prompt with git status, mise, minimal PATH    |
-| `gitconfig`           | git identity, aliases, signing key                 |
-| `tmux.conf`           | tmux: `^<space>` prefix, Ghostty truecolor         |
-| `config/ghostty/`     | Ghostty terminal: Monaspace fonts, w0zro themes    |
-| `config/nvim/`        | Neovim: minimal vim-pro config (full one archived) |
-| `config/tmuxinator/`  | tmuxinator project layouts (`mux dot`)             |
-| `phoenix.js`          | Phoenix window manager: `cmd+ctrl` + hjkl/space    |
-| `ssh/config`          | ssh: keychain-backed key loading                   |
-| `Brewfile`            | the toolchain (`brew bundle --file ~/Brewfile`)    |
-| `rcrc`                | rcm configuration                                  |
+| Source                   | Purpose                                            |
+| ------------------------ | -------------------------------------------------- |
+| `dot_zshrc` / `dot_zprofile` | zsh: prompt with git status, completions, mise |
+| `dot_gitconfig`          | git identity, aliases, signing key                 |
+| `dot_tmux.conf`          | tmux: `^<space>` prefix, Ghostty truecolor         |
+| `dot_config/ghostty/`    | Ghostty terminal: Monaspace fonts, w0zro themes    |
+| `dot_config/nvim/`       | Neovim: minimal vim-pro config (full one archived) |
+| `dot_config/mise/`       | pinned language runtimes (node, python, ruby)      |
+| `dot_config/tmuxinator/` | tmuxinator project layouts (`mux dot`)             |
+| `dot_phoenix.js`         | Phoenix window manager: `cmd+ctrl` + hjkl/space    |
+| `private_dot_ssh/`       | ssh: keychain-backed key loading                   |
+| `Brewfile`               | the toolchain (`brew bundle --file ~/Brewfile`)    |
+
+## Daily workflow
+
+Edit files here (or via `chezmoi edit <target>`), then:
+
+```sh
+chezmoi diff    # what would change
+chezmoi apply   # write to $HOME
+```
+
+Targets are real files, not symlinks — `chezmoi apply` is the sync step.
 
 ## Bootstrap on a new machine
 
 ```sh
-# 1. Homebrew, then the toolchain
+# 1. Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. This repo becomes the chezmoi source, then everything applies
+brew install chezmoi
 git clone <this repo> ~/projects/w0zro/dotfiles
-brew bundle --file ~/projects/w0zro/dotfiles/Brewfile
+chezmoi apply --source ~/projects/w0zro/dotfiles   # includes chezmoi's own config
 
-# 2. Symlink everything into $HOME
-RCRC=~/projects/w0zro/dotfiles/rcrc rcup
-
-# 3. Language runtimes (node, python, ruby — pinned in ~/.config/mise/config.toml)
+# 3. The toolchain, then language runtimes
+brew bundle --file ~/Brewfile
 mise install
 ```
 
 ## Secrets
 
 Never commit secrets. Machine-local secrets and overrides live in
-`~/.zshrc.local` (chmod 600, untracked), which `zshrc` sources if present.
+`~/.zshrc.local` (chmod 600, untracked, unmanaged), which `dot_zshrc`
+sources if present.
