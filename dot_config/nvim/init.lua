@@ -12,10 +12,10 @@ vim.g.mapleader = ' '
 vim.opt.rtp:append(vim.fn.expand('~/projects/w0zro/vim-pro/vim-pro'))
 require('vim-pro').setup()
 
--- conjure: ~{motion} prompts for an intent and rewrites the target via LLM.
+-- conjurer: ~{motion} prompts for an intent and rewrites the target via LLM.
 -- ~~ for the line, ~ in visual, . repeats the intent. Needs $ANTHROPIC_API_KEY.
 vim.opt.rtp:append(vim.fn.expand('~/projects/vim-pro/conjure'))
-require('conjure').setup()
+require('conjurer').setup()
 
 vim.opt.rtp:append(vim.fn.expand('~/projects/w0zro/w0zro.nvim'))
 vim.opt.termguicolors = true  -- w0zro is truecolor-first; renders exact hexes
