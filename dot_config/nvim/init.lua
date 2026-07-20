@@ -1,9 +1,7 @@
 -- vanilla nvim + vim.pro, nothing else.
 --
--- The full config is preserved next door in init.full.lua (including
--- the uncommitted vim-test additions). To go back:
---   cd ~/projects/w0zro/dotfiles/config/nvim
---   mv init.lua init.vimpro.lua && mv init.full.lua init.lua
+-- The old lazy.nvim-based config is preserved in ~/projects/archive_dotfiles
+-- (dot_config/nvim/init.full.lua) if it's ever needed again.
 
 -- must precede any <leader> mappings (incl. plugins) -- leader is resolved
 -- at mapping-definition time, not at use time.
