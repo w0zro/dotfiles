@@ -1,3 +1,0 @@
-DOTFILES_DIRS="$HOME/projects/w0zro/dotfiles"
-EXCLUDES="Brewfile.lock.json README.md"
-UNDOTTED="Brewfile"
