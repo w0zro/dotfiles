@@ -13,6 +13,10 @@ brew "grc"
 # runtimes (node, python, ruby)
 brew "mise"
 
+# window management
+tap "nikitabobko/tap"
+cask "aerospace"
+
 # version control
 brew "git"
 
