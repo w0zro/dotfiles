@@ -23,7 +23,13 @@ vim.pack.add({
 require('conjurer').setup()
 
 vim.opt.termguicolors = true  -- datum is truecolor-first; renders exact hexes
-vim.opt.background = 'light'   -- set before colorscheme so it picks the light branch
+
+-- Follow the macOS system appearance at startup (like Ghostty does). The
+-- AppleInterfaceStyle default exists only in dark mode, so a clean exit == dark.
+-- Set before colorscheme so datum picks the branch; <leader>bg still overrides.
+vim.fn.system({ 'defaults', 'read', '-g', 'AppleInterfaceStyle' })
+vim.opt.background = vim.v.shell_error == 0 and 'dark' or 'light'
+
 vim.cmd.colorscheme('datum')
 
 -- datum's chroma tiers need real tokens: base regex syntax never populates
