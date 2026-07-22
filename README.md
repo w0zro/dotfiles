@@ -15,7 +15,7 @@ Source names map to targets: `dot_zshrc` → `~/.zshrc`,
 | `dot_gitconfig`          | git identity, aliases, signing key                 |
 | `dot_tmux.conf`          | tmux: `^<space>` prefix, Ghostty truecolor         |
 | `dot_config/ghostty/`    | Ghostty terminal: Monaspace fonts, w0zro themes    |
-| `dot_config/nvim/`       | Neovim: minimal vim-pro config (full one archived) |
+| `dot_config/nvim/`       | Neovim: vim.pack plugins (conjurer, datum theme)   |
 | `dot_config/mise/`       | pinned language runtimes (node, python, ruby)      |
 | `dot_config/tmuxinator/` | tmuxinator project layouts (`mux dot`)             |
 | `dot_config/aerospace/`  | AeroSpace tiling WM: `cmd+ctrl` + hjkl focus/move  |
