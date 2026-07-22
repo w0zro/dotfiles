@@ -1,7 +1,7 @@
 [user]
     name = w0zro
     email = w0zro@proton.me
-    signingkey = 1834E699E49B0036
+    signingkey = ~/.ssh/id_ed25519.pub
 [core]
     excludesfile = ~/.gitignore
 [alias]
@@ -53,5 +53,12 @@
     ui = auto
 [commit]
     verbose = true
+    gpgsign = true
+[tag]
+    gpgSign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
 [help]
     autocorrect = prompt
