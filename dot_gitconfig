@@ -29,3 +29,29 @@
     defaultBranch = main
 [push]
     autoSetupRemote = true
+    followTags = true
+[merge]
+    conflictStyle = zdiff3
+[rerere]
+    enabled = true
+[rebase]
+    autosquash = true
+    autostash = true
+    updateRefs = true
+    missingCommitsCheck = error
+[diff]
+    algorithm = histogram
+    colorMoved = zebra
+    colorMovedWS = allow-indentation-change
+    mnemonicPrefix = true
+    renames = copies
+[fetch]
+    prune = true
+[branch]
+    sort = -committerdate
+[column]
+    ui = auto
+[commit]
+    verbose = true
+[help]
+    autocorrect = prompt
