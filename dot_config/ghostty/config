@@ -36,11 +36,11 @@ cursor-style-blink = false
 resize-overlay = never
 mouse-hide-while-typing = true
 
-# --- w0zro colours, following macOS appearance ----------------------------
+# --- datum colours, following macOS appearance ----------------------------
 # nvim overrides its own window via truecolor; these drive the shell and any
-# 16-colour CLI output (git, ls, grep). Terminal chrome follows the system
-# light/dark setting; nvim keeps its own default (and <space>bg) independently.
-theme = light:w0zro-light,dark:w0zro-dark
+# 16-colour CLI output (git, ls, grep). Both the terminal chrome and nvim
+# follow the system light/dark setting; nvim also has <space>bg to override.
+theme = light:datum-light,dark:datum-dark
 
 # --- window chrome --------------------------------------------------------
 window-padding-x = 8
