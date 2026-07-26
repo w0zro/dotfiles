@@ -8,18 +8,29 @@
 vim.g.mapleader = ' '
 
 -- Plugins via Neovim's built-in package manager (vim.pack, 0.12+).
--- Homepages: https://conjurer.vim.pro and https://datum.w0zro.com -- vim.pack
--- clones the git repos those pages resolve to.
+-- Homepage: https://datum.w0zro.com -- vim.pack clones the git repo that
+-- page resolves to.
 vim.pack.add({
-  'https://github.com/vim-pro/conjurer.nvim',
   'https://github.com/w0zro/datum',
 })
 
--- vim-pro (local rtp) removed for the time being; restore from git history when needed.
+-- Local checkouts instead of published plugins while the aggregate-conjuring
+-- + quickfix.pro work is in progress. Swap conjurer back to
+-- vim.pack.add({ 'https://github.com/vim-pro/conjurer.nvim' }) once merged.
+-- quickfix.pro is prepended first so its plugin/ bootstrap (the FileType qf
+-- hook + client API) is available before conjurer registers as a client.
+vim.opt.rtp:prepend('/Users/w0zro/projects/vim-pro/quickfix')
+vim.opt.rtp:prepend('/Users/w0zro/projects/vim-pro/conjure')
+-- fingers.nvim: watches how you actually edit and notes where there was a
+-- shorter way. Observed live, never interrupts -- it surfaces only in the
+-- vim.pro buffer, which you open with :pro (:checkhealth fingers if it looks
+-- idle). Local-only -- stdpath('data')/fingers/counts.json, nothing uploaded.
+vim.opt.rtp:prepend('/Users/w0zro/projects/vim-pro/fingers.nvim')
 
 -- conjurer: ~{motion} prompts for an intent and rewrites the target via LLM
 -- (the local claude CLI by default -- no API key needed). ~~ for the line,
--- ~ in visual, . repeats the intent, :ConjureCancel aborts.
+-- ~ in visual, . repeats the intent, :ConjureCancel aborts. :ConjureAll casts
+-- an intent over the whole quickfix list (aggregate branch).
 require('conjurer').setup()
 
 vim.opt.termguicolors = true  -- datum is truecolor-first; renders exact hexes
