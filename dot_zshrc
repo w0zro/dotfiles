@@ -1,9 +1,32 @@
 #
-# Colors
+# Colors  (datum)
+#
+# Everything here uses ANSI slots 0-15, never hex. Ghostty maps those slots to
+# the datum palette and swaps them with the macOS light/dark setting, so
+# index-based colour follows the theme automatically; a hardcoded hex would
+# pin the shell to one mode. Slot map:
+#   0/8  greys      1 red(err)  2 green(str)  3 yellow(const)
+#   4 blue(kw)      5 magenta(fn def)         6 cyan(type)
+#   9 orange(num)  11 var  12 op  13 call  14 param   <- tier-2 pastels
 #
 
 autoload -U colors && colors
 [[ -s '/opt/homebrew/etc/grc.zsh' ]] && source /opt/homebrew/etc/grc.zsh
+
+# BSD ls (macOS). 11 fg/bg pairs; capital = bright slot.
+#   dir=blue  symlink=param  socket=magenta  pipe=yellow  exec=call
+#   setuid/setgid + world-writable dirs = red (the alarm channel)
+export CLICOLOR=1
+export LSCOLORS='exGxfxdxFxdxdxbxbxexbx'
+
+# GNU format -- drives the zsh completion menu (and GNU ls if ever installed).
+# Same story as the editor: structure cool, data warm, invokable purple,
+# broken red. Archives/media are data, so they take orange.
+export LS_COLORS='di=34:ln=96:so=35:pi=33:ex=95:bd=33:cd=33:su=31:sg=31:tw=34:ow=31:mi=31:or=31'
+LS_COLORS+=':*.tar=91:*.tgz=91:*.zip=91:*.gz=91:*.bz2=91:*.xz=91:*.7z=91:*.rar=91'
+LS_COLORS+=':*.jpg=35:*.jpeg=35:*.png=35:*.gif=35:*.svg=35:*.webp=35:*.mp4=35:*.mov=35:*.mp3=35'
+LS_COLORS+=':*.md=32:*.txt=32:*.json=33:*.yml=33:*.yaml=33:*.toml=33'
+export LS_COLORS
 
 #
 # Prompt
@@ -29,6 +52,15 @@ PROMPT=$'%F{8}%~%f ${vcs_info_msg_0_}\n$%f '
 
 FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
 autoload -Uz compinit && compinit
+
+# Completion menu in the datum palette (files reuse LS_COLORS above).
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
+zstyle ':completion:*:descriptions' format '%F{4}%d%f'        # blue  = structure
+zstyle ':completion:*:messages'     format '%F{6}%d%f'        # cyan
+zstyle ':completion:*:warnings'     format '%F{1}no matches%f' # red = the alarm channel
+zstyle ':completion:*:corrections'  format '%F{9}%d (errors: %e)%f'  # orange
+zstyle ':completion:*' group-name ''
 
 #
 # Aliases
