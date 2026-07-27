@@ -39,7 +39,10 @@ Targets are real files, not symlinks — `chezmoi apply` is the sync step.
 # 1. Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# 2. This repo becomes the chezmoi source, then everything applies
+# 2. This repo becomes the chezmoi source, then everything applies.
+#    (Set up the GitHub SSH key first: .chezmoiexternal.toml also clones the
+#    local project checkouts these dotfiles depend on -- datum for the
+#    ghostty/tmux theme, and the vim-pro plugins nvim loads from local rtp.)
 brew install chezmoi
 git clone <this repo> ~/projects/w0zro/dotfiles
 chezmoi apply --source ~/projects/w0zro/dotfiles   # includes chezmoi's own config

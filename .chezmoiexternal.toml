@@ -1,0 +1,31 @@
+# Local project checkouts the dotfiles depend on:
+#   - ghostty theme symlinks + tmux statusline -> ~/projects/w0zro/datum
+#   - nvim rtp (conjurer + quickfix.pro + fingers.nvim) -> ~/projects/vim-pro/*
+#
+# type = "git-repo" clones these on a fresh machine so `chezmoi apply` never
+# leaves dangling symlinks or a broken nvim. refreshPeriod is left at its
+# default (0 = never), so after one priming pull when the external is first
+# registered, chezmoi leaves existing checkouts alone -- and pull.args
+# --ff-only guarantees no chezmoi-initiated pull can ever create a merge
+# commit in active development work. (SSH urls: a fresh machine needs its
+# GitHub key set up before `chezmoi apply`.)
+
+["projects/w0zro/datum"]
+    type = "git-repo"
+    url = "git@github.com:w0zro/datum.git"
+    pull.args = ["--ff-only"]
+
+["projects/vim-pro/quickfix"]
+    type = "git-repo"
+    url = "git@github.com:vim-pro/quickfix.pro.git"
+    pull.args = ["--ff-only"]
+
+["projects/vim-pro/conjure"]
+    type = "git-repo"
+    url = "git@github.com:vim-pro/conjurer.nvim.git"
+    pull.args = ["--ff-only"]
+
+["projects/vim-pro/fingers.nvim"]
+    type = "git-repo"
+    url = "git@github.com:vim-pro/fingers.nvim.git"
+    pull.args = ["--ff-only"]
