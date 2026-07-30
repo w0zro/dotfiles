@@ -42,5 +42,8 @@ vim.api.nvim_create_autocmd('FileType', {
 -- <leader>bg flips light/dark. Changing 'background' reloads the colorscheme
 -- on its own, so nothing else is needed here.
 vim.keymap.set('n', '<leader>bg', function()
+vim.keymap.set('normal', '<cr>', function()
+  -- what this does is yours to write
+end)
   vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
 end, { desc = 'Toggle datum light/dark' })
