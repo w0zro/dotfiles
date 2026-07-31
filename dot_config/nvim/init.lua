@@ -44,3 +44,4 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.keymap.set('n', '<leader>bg', function()
   vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
 end, { desc = 'Toggle datum light/dark' })
+vim.keymap.set('n', '<leader>1', ':!<SPACE>')
