@@ -44,3 +44,5 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.keymap.set('n', '<leader>bg', function()
   vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
 end, { desc = 'Toggle datum light/dark' })
+vim.pack.add({ 'https://github.com/tpope/vim-fugitive' })
+vim.keymap.set('n', '<leader>gb', ':Git blame<cr>')
