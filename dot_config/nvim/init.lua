@@ -15,17 +15,26 @@ vim.pack.add({
 })
 
 -- Local checkouts instead of published plugins while the aggregate-conjuring
--- + quickfix.pro work is in progress. Swap conjurer back to
--- vim.pack.add({ 'https://github.com/vim-pro/conjurer.nvim' }) once merged.
+-- + quickfix.pro work is in progress; drop back to plain vim.pack.add lines
+-- once merged. On a machine without the checkouts (a fresh machine before
+-- chezmoi clones them, the vim.pro check's CI runner) each falls back to its
+-- published repo, so this config boots anywhere.
 -- quickfix.pro is prepended first so its plugin/ bootstrap (the FileType qf
 -- hook + client API) is available before conjurer registers as a client.
-vim.opt.rtp:prepend('/Users/w0zro/projects/vim-pro/quickfix')
-vim.opt.rtp:prepend('/Users/w0zro/projects/vim-pro/conjure')
+local function dev(checkout, published)
+  if vim.uv.fs_stat(checkout) then
+    vim.opt.rtp:prepend(checkout)
+  else
+    vim.pack.add({ published })
+  end
+end
+dev('/Users/w0zro/projects/vim-pro/quickfix', 'https://github.com/vim-pro/quickfix-pro.nvim')
+dev('/Users/w0zro/projects/vim-pro/conjure', 'https://github.com/vim-pro/conjurer.nvim')
 -- fingers.nvim: watches how you actually edit and notes where there was a
 -- shorter way. Observed live, never interrupts -- it surfaces only in the
 -- vim.pro buffer, which you open with :pro (:checkhealth fingers if it looks
 -- idle). Local-only -- stdpath('data')/fingers/counts.json, nothing uploaded.
-vim.opt.rtp:prepend('/Users/w0zro/projects/vim-pro/fingers.nvim')
+dev('/Users/w0zro/projects/vim-pro/fingers.nvim', 'https://github.com/vim-pro/fingers.nvim')
 
 -- conjurer: ~{motion} prompts for an intent and rewrites the target via LLM
 -- (the local claude CLI by default -- no API key needed). ~~ for the line,
