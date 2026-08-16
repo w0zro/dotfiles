@@ -1,6 +1,8 @@
 # dotfiles
 
 [![vim.pro](https://vim.pro/u/w0zro/badge.svg)](https://vim.pro/u/w0zro)
+[![vim.pro check](https://vim.pro/u/w0zro/check.svg)](https://vim.pro/u/w0zro/checks)
+[![CI](https://github.com/w0zro/dotfiles/actions/workflows/vimpro-check.yml/badge.svg)](https://github.com/w0zro/dotfiles/actions/workflows/vimpro-check.yml)
 
 macOS setup managed with [chezmoi](https://chezmoi.io): this repo is the
 chezmoi source directory (`sourceDir` is pinned in
