@@ -1,0 +1,11 @@
+# CI for your editor: boots this repo's nvim config on a clean machine,
+# with its declared plugins provisioned, and fails the build if the editor
+# fails — the error quoted, not summarized. Added from vim.pro/settings.
+name: vim.pro check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vim-pro/check@v1
