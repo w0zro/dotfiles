@@ -46,9 +46,14 @@ vim.opt.termguicolors = true  -- datum is truecolor-first; renders exact hexes
 
 -- Follow the macOS system appearance at startup (like Ghostty does). The
 -- AppleInterfaceStyle default exists only in dark mode, so a clean exit == dark.
--- Set before colorscheme so datum picks the branch; <leader>bg still overrides.
-vim.fn.system({ 'defaults', 'read', '-g', 'AppleInterfaceStyle' })
-vim.opt.background = vim.v.shell_error == 0 and 'dark' or 'light'
+-- Guarded: the list form of vim.fn.system RAISES where 'defaults' is not
+-- executable (Linux, CI), it doesn't fail soft. Elsewhere nvim's own default
+-- background stands. Set before colorscheme so datum picks the branch;
+-- <leader>bg still overrides.
+if vim.fn.executable('defaults') == 1 then
+  vim.fn.system({ 'defaults', 'read', '-g', 'AppleInterfaceStyle' })
+  vim.opt.background = vim.v.shell_error == 0 and 'dark' or 'light'
+end
 
 vim.cmd.colorscheme('datum')
 
